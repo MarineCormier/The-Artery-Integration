@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Artery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="carrousel">
+	<div class="container-gif">
+	    <ul>
+	        <li><img src="assets/img/accueil.gif" /></li>
+			<li><img src="assets/img/film.gif" /></li>
+			<li><img src="assets/img/experience.gif" /></li>
+			<li><img src="assets/img/design.gif" /></li>
+			<li><img src="assets/img/production.gif" /></li>
+	    </ul>
+	</div>
+</div>
+
+    <div class="ligne1">
+    	<div class="logo"><img src="assets/img/logo.svg"></div>
+    		<div class="case2"></div>
+    			<div class="case3"></div>
+    				<div class="case4"><a href="menu.html"> <img src="assets/img/menu.png"></a></div>
+    					<div class="case5"><div class="scroll">SCROLL<div class="exemple"></div></div></div>
+				    		<div class="case6"></div>
+				    			<div class="case7"></div>
+
+				<div class="case8">
+				    <div class="carrousel2">
+				    				<li><img src="assets/img/titre1.svg"/></li>
+									<li><img src="assets/img/film.svg" /></li>
+									<li><img src="assets/img/experience.svg" /></li>
+									<li><img src="assets/img/design.svg"/></li>
+									<li><img src="assets/img/production.svg"/></li></div>
+<br>
+									<img class="fleche next" src="assets/img/fleche-bas.svg"> <img class="fleche prev" src="assets/img/fleche-haut.svg"></div> </div> 
+
+		
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function(){
+var $carrousel = $('.carrousel'),
+	$carrousel2 = $('carrousel2')
+    $img = $('.carrousel img'),
+    $img2 = $('.carrousel2 img')
+    indexImg = $img.length - 1,
+    indexImg2 = $img2.length - 1,
+    i = 0,
+    $currentImg = $img.eq(i);
+    $currentImg2 = $img2.eq(i);
+$img.css('display', 'none');
+$img2.css('display', 'none');
+$currentImg.css('display', 'block');
+$currentImg2.css('display', 'block');
+
+$('.next').click(function(){
+    i++; 
+    if( i <= indexImg ){
+        $img.css('display', 'none');
+        $img2.css('display', 'none');
+        $currentImg = $img.eq(i);
+        $currentImg2 = $img2.eq(i);
+        $currentImg.css('display', 'block');
+        $currentImg2.css('display', 'block');
+    }
+    else{
+        i = indexImg;
+        i = indexImg2;
+    }
+});
+
+
+$('.prev').click(function(){
+    i--; 
+
+
+    if( i >= 0 ){
+        $img.css('display', 'none');
+        $img2.css('display', 'none');
+        $currentImg = $img.eq(i);
+        $currentImg2 = $img2.eq(i);
+        $currentImg.css('display', 'block');
+        $currentImg2.css('display', 'block');
+    }
+    else{
+        i = 0;
+    }
+});
+
+$( ".crossRotate" ).click(function() {
+    if (  $( this ).css( "transform" ) == 'none' ){
+        $(this).css("transform","rotate(100deg)");
+    } else {
+        $(this).css("transform","" );
+    }
+});
+
+
+function slideImg(){
+    setTimeout(function(){ 
+     if(i < indexImg){ 
+	i++; 
+    }
+    else{ 
+        i = 0;
+    }
+    $img.css('display', 'none');
+    $currentImg = $img.eq(i);
+    $currentImg.css('display', 'block');
+    slideImg(); 
+    }, 20000); 
+
+}
+
+
+
+
+});
+
+</script>
+
+
+</html>
